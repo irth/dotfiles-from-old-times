@@ -7,3 +7,4 @@ export _ENV_LOADED=true
 export GOPATH="$HOME/code/go"
 export PATH="$HOME/bin:$GOPATH/bin:$PATH"
 export EDITOR="code -w"
+source ~/etc/xdg-user-dirs
