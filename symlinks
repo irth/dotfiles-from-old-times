@@ -2,6 +2,7 @@ vim -> ~/.vim
 vimrc -> ~/.vimrc
 
 zshrc -> ~/.zshrc
+bashrc -> ~/.bashrc
 
 awesome -> ~/.config/awesome
 
