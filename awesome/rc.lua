@@ -110,8 +110,8 @@ local taglist_buttons = gears.table.join(
                                                   client.focus:toggle_tag(t)
                                               end
                                           end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+                    awful.button({ }, 4, function(t) next_notempty(t.screen) end),
+                    awful.button({ }, 5, function(t) prev_notempty(t.screen) end)
                 )
 
 local tasklist_buttons = gears.table.join(
@@ -203,8 +203,8 @@ end)
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 4, function() next_notempty(awful.screen.focused()) end),
+    awful.button({ }, 5, function() prev_notempty(awful.screen.focused()) end)
 ))
 -- }}}
 
@@ -212,9 +212,9 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({ modkey,           }, "Left",   function() prev_notempty(awful.screen.focused()) end,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    awful.key({ modkey,           }, "Right",  function() next_notempty(awful.screen.focused()) end,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
@@ -600,3 +600,25 @@ client.connect_signal("manage", function (c)
         gears.shape.rounded_rect(cr,w,h,5)
     end
 end)
+
+-- switch to the next (if direction=1) or prev (if direction=-1) tag that has clients
+function nearest_notempty(screen, direction)
+    local current = screen.selected_tag
+    local all = screen.tags
+
+    for i = 1, #all do
+        local tag = all[((current.index) - 1 + direction*i) % 14 + 1]
+        if #tag:clients() > 0 then
+            tag:view_only()
+            return
+        end
+    end
+end
+
+function next_notempty(screen)
+    nearest_notempty(screen, 1)
+end
+
+function prev_notempty(screen)
+    nearest_notempty(screen, -1)
+end
