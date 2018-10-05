@@ -1,0 +1,10 @@
+vim -> ~/.vim
+vimrc -> ~/.vimrc
+
+zshrc -> ~/.zshrc
+
+awesome -> ~/.config/awesome
+
+xfce4-terminal -> ~/.config/xfce4/terminal
+
+xinitrc -> ~/.xinitrc

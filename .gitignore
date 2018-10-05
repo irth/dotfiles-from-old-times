@@ -1,0 +1,20 @@
+# adapted from: https://github.com/bitprophet/dotfiles/blob/master/.gitignore
+# Vim plugins, ftplugins, syntax etc etc
+!vim
+!vim/*
+!vim/*/*
+!vim/*/*/*
+!vim/*/*/*/*
+!vim/*/*/*/*/*
+!vim/*/*/*/*/*/*
+# Do ignore netrw history
+vim/.netrwhist
+# Do ignore vim-plug stuff, sigh
+vim/plugged
+# Vim settings
+!vimrc
+# Ignore swapfiles
+vim/.*.swp
+vim/*/.*.swp
+vim/*/*/.*.swp
+vim/*/*/*/.*.swp

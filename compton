@@ -1,0 +1,36 @@
+backend = "glx";
+
+fading = false;
+fade-in-step = 0.03;
+fade-out-step = 0.03;
+
+detect-client-opacity = true;
+glx-copy-from-front = false;
+glx-no-rebind-pixmap = true;
+glx-swap-method = 1;
+glx-use-gpushader4 = true;
+mark-wmwin-focused = true;
+paint-on-overlay = true;
+use-ewmh-active-win = true;
+vsync = "opengl-swc";
+
+#clear-shadow = true;
+#no-dnd-shadow = true;
+#no-dock-shadow = false;
+#shadow = true;
+#shadow-ignore-shaped = false;
+#shadow-offset-x = -9;
+#shadow-offset-y = -9;
+#shadow-opacity = 0.6;
+#shadow-radius = 6;
+#shadow-red=0.8;
+#shadow-green=1;
+#shadow-blue=1;
+#shadow-exclude="!focused"
+
+
+blur-background = true;
+blur-background-fixed = true;
+blur-method = "kawase";
+blur-strength = 5;
+blur-background-exclude = "class_g='slop'";
