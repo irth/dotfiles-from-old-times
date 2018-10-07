@@ -108,3 +108,30 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# quick jumping to folders in ~/code
+AT_ALIASES=()
+
+function @(){
+	cd ~/code/@"$@"
+}
+
+function update_at_aliases() {
+  # remove existing aliases
+	for n in $AT_ALIASES; do
+		unalias "$n"
+	done
+	AT_ALIASES=()
+
+  # create aliases for each @directory
+	for i in ~/code/@*; do
+		n="$(basename "$i")"
+		AT_ALIASES+=($n) # also store it's name in an array to remove it later
+		alias "$n"="cd $i";
+	done
+}
+
+update_at_aliases
+
+# update aliases before each command
+precmd_functions+=(update_at_aliases)
