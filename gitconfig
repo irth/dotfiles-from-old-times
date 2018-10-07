@@ -1,0 +1,5 @@
+[user]
+	email = me@irth.pl
+	name = Wojciech Kwolek
+[core]
+	excludesfile = /home/me/etc/gitignore
