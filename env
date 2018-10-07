@@ -5,6 +5,6 @@ fi
 
 export _ENV_LOADED=true
 export GOPATH="$HOME/code/go"
-export PATH="$HOME/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/bin:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.gem/ruby/2.5.0/bin:$PATH"
 export EDITOR="code -w"
 source ~/etc/xdg-user-dirs
