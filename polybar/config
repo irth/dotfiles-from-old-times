@@ -1,0 +1,75 @@
+[bar/main]
+modules-left=i3
+modules-center=xwindow
+modules-right=cpu temperature pulseaudio battery date
+
+tray-position = right
+
+module-margin=2
+padding-right=1
+
+font-0=xos4 Terminus:size=16;2
+
+monitor=eDP-1
+
+bottom=false
+
+border-size=2
+border-color=#44475A
+
+background=#dd282a36
+foreground=#f8f8f2
+
+width=100%:-20
+height=24
+
+offset-y=10
+offset-x=10
+
+override-redirect=true 
+wm-restack=i3
+
+[settings]
+screenchange-reload
+
+[module/i3]
+type=internal/i3
+strip-wsnumbers=true
+label-unfocused-foreground=#6272a4
+label-urgent-foreground=#ff5555
+
+[module/date]
+type=internal/date
+date = %Y-%m-%d%
+time = %H:%M:%S
+label = %date% %time%
+
+[module/pulseaudio]
+type=internal/pulseaudio
+format-volume = "<label-volume>"
+format-volume-prefix = "vol "
+format-volume-prefix-foreground = #6272a4
+label-muted = muted
+label-muted-foreground = #6272a4
+
+[module/battery]
+type=internal/battery
+battery = BAT1
+adapter = ACAD
+
+format-charging = <label-charging>
+format-charging-prefix = "cha "
+format-charging-prefix-foreground = "#6272a4"
+
+format-discharging = <label-discharging>
+format-discharging-prefix = "bat "
+format-discharging-prefix-foreground = #6272a4
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+label-warn-foreground = #ff5555
+
+[module/xwindow]
+type = internal/xwindow

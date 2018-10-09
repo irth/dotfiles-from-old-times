@@ -4,8 +4,6 @@ vimrc -> ~/.vimrc
 zshrc -> ~/.zshrc
 bashrc -> ~/.bashrc
 
-awesome -> ~/.config/awesome
-
 xfce4-terminal -> ~/.config/xfce4/terminal
 
 xinitrc -> ~/.xinitrc
@@ -13,3 +11,6 @@ xinitrc -> ~/.xinitrc
 xdg-user-dirs -> ~/.config/user-dirs.dirs
 
 gitconfig -> ~/.gitconfig
+
+i3 -> ~/.config/i3
+polybar -> ~/.config/polybar
